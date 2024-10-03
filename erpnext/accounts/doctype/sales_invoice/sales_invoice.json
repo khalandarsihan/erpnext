@@ -10,15 +10,18 @@
   "title",
   "naming_series",
   "customer",
+  "posting_date",
+  "posting_time",
   "customer_name",
   "tax_id",
   "company",
   "company_tax_id",
   "column_break1",
-  "posting_date",
-  "posting_time",
+  "plot",
   "set_posting_time",
   "due_date",
+  "work_name",
+  "work_description",
   "column_break_14",
   "is_pos",
   "pos_profile",
@@ -595,6 +598,7 @@
    "depends_on": "customer",
    "fieldname": "currency_and_price_list",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "hide_days": 1,
    "hide_seconds": 1,
    "label": "Currency and Price List"
@@ -723,6 +727,7 @@
    "oldfieldname": "entries",
    "oldfieldtype": "Table",
    "options": "Sales Invoice Item",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -1902,6 +1907,7 @@
    "collapsible": 1,
    "fieldname": "accounting_dimensions_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "hide_days": 1,
    "hide_seconds": 1,
    "label": "Accounting Dimensions"
@@ -2166,6 +2172,24 @@
    "label": "Update Outstanding for Self",
    "no_copy": 1,
    "print_hide": 1
+  },
+  {
+   "fieldname": "plot",
+   "fieldtype": "Link",
+   "label": "Plot",
+   "options": "Plot"
+  },
+  {
+   "fetch_from": "work_id.work_type_name",
+   "fieldname": "work_name",
+   "fieldtype": "Data",
+   "label": "Work Name"
+  },
+  {
+   "fetch_from": "work_id.description",
+   "fieldname": "work_description",
+   "fieldtype": "Small Text",
+   "label": "Work Description"
   }
  ],
  "icon": "fa fa-file-text",
@@ -2178,7 +2202,7 @@
    "link_fieldname": "consolidated_invoice"
   }
  ],
- "modified": "2024-07-18 15:30:39.428519",
+ "modified": "2024-10-02 19:12:02.548427",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Sales Invoice",

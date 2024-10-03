@@ -90,6 +90,7 @@ class SalesInvoiceItem(Document):
 		warehouse: DF.Link | None
 		weight_per_unit: DF.Float
 		weight_uom: DF.Link | None
+		work_id: DF.Link | None
 	# end: auto-generated types
 
 	pass
