@@ -145,9 +145,21 @@ class PaymentEntry(AccountsController):
 				self.is_opening = "No"
 				return
 
-		liability_account = get_party_account(
-			self.party_type, self.party, self.company, include_advance=True
-		)[1]
+		accounts = get_party_account(self.party_type, self.party, self.company, include_advance=True)
+
+		liability_account = accounts[1] if len(accounts) > 1 else None
+		fieldname = (
+			"default_advance_received_account"
+			if self.party_type == "Customer"
+			else "default_advance_paid_account"
+		)
+
+		if not liability_account:
+			throw(
+				_("Please set default {0} in Company {1}").format(
+					frappe.bold(frappe.get_meta("Company").get_label(fieldname)), frappe.bold(self.company)
+				)
+			)
 
 		self.set(self.party_account_field, liability_account)
 
@@ -1740,7 +1752,7 @@ def get_outstanding_reference_documents(args, validate=False):
 				d["bill_no"] = frappe.db.get_value(d.voucher_type, d.voucher_no, "bill_no")
 
 		# Get negative outstanding sales /purchase invoices
-		if args.get("party_type") != "Employee" and not args.get("voucher_no"):
+		if args.get("party_type") != "Employee":
 			negative_outstanding_invoices = get_negative_outstanding_invoices(
 				args.get("party_type"),
 				args.get("party"),
