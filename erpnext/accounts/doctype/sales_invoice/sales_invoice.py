@@ -51,21 +51,16 @@ class SalesInvoice(SellingController):
 	from typing import TYPE_CHECKING
 
 	if TYPE_CHECKING:
-		from frappe.types import DF
-
 		from erpnext.accounts.doctype.payment_schedule.payment_schedule import PaymentSchedule
 		from erpnext.accounts.doctype.pricing_rule_detail.pricing_rule_detail import PricingRuleDetail
 		from erpnext.accounts.doctype.sales_invoice_advance.sales_invoice_advance import SalesInvoiceAdvance
 		from erpnext.accounts.doctype.sales_invoice_item.sales_invoice_item import SalesInvoiceItem
 		from erpnext.accounts.doctype.sales_invoice_payment.sales_invoice_payment import SalesInvoicePayment
-		from erpnext.accounts.doctype.sales_invoice_timesheet.sales_invoice_timesheet import (
-			SalesInvoiceTimesheet,
-		)
-		from erpnext.accounts.doctype.sales_taxes_and_charges.sales_taxes_and_charges import (
-			SalesTaxesandCharges,
-		)
+		from erpnext.accounts.doctype.sales_invoice_timesheet.sales_invoice_timesheet import SalesInvoiceTimesheet
+		from erpnext.accounts.doctype.sales_taxes_and_charges.sales_taxes_and_charges import SalesTaxesandCharges
 		from erpnext.selling.doctype.sales_team.sales_team import SalesTeam
 		from erpnext.stock.doctype.packed_item.packed_item import PackedItem
+		from frappe.types import DF
 
 		account_for_change_amount: DF.Link | None
 		additional_discount_account: DF.Link | None
@@ -151,6 +146,7 @@ class SalesInvoice(SellingController):
 		payment_terms_template: DF.Link | None
 		payments: DF.Table[SalesInvoicePayment]
 		plc_conversion_rate: DF.Float
+		plot: DF.Link | None
 		po_date: DF.Date | None
 		po_no: DF.Data | None
 		pos_profile: DF.Link | None
@@ -177,22 +173,7 @@ class SalesInvoice(SellingController):
 		shipping_address_name: DF.Link | None
 		shipping_rule: DF.Link | None
 		source: DF.Link | None
-		status: DF.Literal[
-			"",
-			"Draft",
-			"Return",
-			"Credit Note Issued",
-			"Submitted",
-			"Paid",
-			"Partly Paid",
-			"Unpaid",
-			"Unpaid and Discounted",
-			"Partly Paid and Discounted",
-			"Overdue and Discounted",
-			"Overdue",
-			"Cancelled",
-			"Internal Transfer",
-		]
+		status: DF.Literal["", "Draft", "Return", "Credit Note Issued", "Submitted", "Paid", "Partly Paid", "Unpaid", "Unpaid and Discounted", "Partly Paid and Discounted", "Overdue and Discounted", "Overdue", "Cancelled", "Internal Transfer"]
 		subscription: DF.Link | None
 		tax_category: DF.Link | None
 		tax_id: DF.Data | None
@@ -218,6 +199,8 @@ class SalesInvoice(SellingController):
 		update_outstanding_for_self: DF.Check
 		update_stock: DF.Check
 		use_company_roundoff_cost_center: DF.Check
+		work_description: DF.SmallText | None
+		work_name: DF.Data | None
 		write_off_account: DF.Link | None
 		write_off_amount: DF.Currency
 		write_off_cost_center: DF.Link | None

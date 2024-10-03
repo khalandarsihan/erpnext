@@ -10,15 +10,18 @@
  "document_type": "Setup",
  "engine": "InnoDB",
  "field_order": [
+  "owner_tab",
   "basic_info",
   "naming_series",
   "salutation",
   "customer_name",
-  "customer_type",
-  "customer_group",
+  "customer_since",
+  "is_active_",
   "column_break0",
   "territory",
   "gender",
+  "customer_type",
+  "customer_group",
   "lead_name",
   "opportunity_name",
   "prospect_name",
@@ -42,6 +45,10 @@
   "language",
   "column_break_45",
   "customer_details",
+  "partners_tab",
+  "partners_information",
+  "plots_tab",
+  "plot_list",
   "dashboard_tab",
   "contact_and_address_tab",
   "address_contacts",
@@ -125,6 +132,7 @@
    "depends_on": "eval:doc.customer_type != 'Company'",
    "fieldname": "gender",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Gender",
    "options": "Gender"
   },
@@ -141,12 +149,14 @@
   {
    "fieldname": "default_bank_account",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Default Company Bank Account",
    "options": "Bank Account"
   },
   {
    "fieldname": "lead_name",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "From Lead",
    "no_copy": 1,
    "oldfieldname": "lead_name",
@@ -170,6 +180,7 @@
   {
    "fieldname": "account_manager",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Account Manager",
    "options": "User"
   },
@@ -187,6 +198,7 @@
   {
    "fieldname": "territory",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Territory",
@@ -222,6 +234,7 @@
    "depends_on": "is_internal_customer",
    "fieldname": "represents_company",
    "fieldtype": "Link",
+   "hidden": 1,
    "ignore_user_permissions": 1,
    "label": "Represents Company",
    "options": "Company",
@@ -231,6 +244,7 @@
    "depends_on": "represents_company",
    "fieldname": "companies",
    "fieldtype": "Table",
+   "hidden": 1,
    "label": "Allowed To Transact With",
    "options": "Allowed To Transact With"
   },
@@ -245,6 +259,7 @@
   {
    "fieldname": "default_price_list",
    "fieldtype": "Link",
+   "hidden": 1,
    "ignore_user_permissions": 1,
    "label": "Default Price List",
    "options": "Price List"
@@ -308,15 +323,15 @@
    "fetch_from": "customer_primary_contact.mobile_no",
    "fieldname": "mobile_no",
    "fieldtype": "Read Only",
-   "label": "Mobile No",
-   "options": "Mobile"
+   "in_list_view": 1,
+   "label": "Mobile No"
   },
   {
    "fetch_from": "customer_primary_contact.email_id",
    "fieldname": "email_id",
    "fieldtype": "Read Only",
-   "label": "Email Id",
-   "options": "Email"
+   "in_list_view": 1,
+   "label": "Email Id"
   },
   {
    "fieldname": "column_break_26",
@@ -363,6 +378,7 @@
    "collapsible_depends_on": "customer_details",
    "fieldname": "more_info",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "More Information",
    "oldfieldtype": "Section Break",
    "options": "fa fa-file-text"
@@ -477,6 +493,7 @@
   {
    "fieldname": "opportunity_name",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "From Opportunity",
    "no_copy": 1,
    "options": "Opportunity",
@@ -485,6 +502,7 @@
   {
    "fieldname": "contact_and_address_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "Address & Contact"
   },
   {
@@ -495,6 +513,7 @@
   {
    "fieldname": "settings_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "Settings"
   },
   {
@@ -502,6 +521,7 @@
    "collapsible_depends_on": "default_sales_partner",
    "fieldname": "sales_team_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "Sales Team",
    "oldfieldtype": "Section Break",
    "options": "fa fa-group"
@@ -517,8 +537,7 @@
   {
    "fieldname": "dashboard_tab",
    "fieldtype": "Tab Break",
-   "label": "Dashboard",
-   "show_dashboard": 1
+   "label": "Dashboard"
   },
   {
    "fieldname": "column_break_53",
@@ -542,6 +561,7 @@
   {
    "fieldname": "tax_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "Tax"
   },
   {
@@ -549,6 +569,7 @@
    "collapsible_depends_on": "is_internal_customer",
    "fieldname": "internal_customer_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Internal Customer"
   },
   {
@@ -562,6 +583,7 @@
   {
    "fieldname": "portal_users_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "Portal Users"
   },
   {
@@ -577,24 +599,56 @@
   {
    "fieldname": "prospect_name",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "From Prospect",
    "no_copy": 1,
    "options": "Prospect",
    "print_hide": 1
+  },
+  {
+   "fieldname": "owner_tab",
+   "fieldtype": "Tab Break",
+   "label": "Owner"
+  },
+  {
+   "fieldname": "partners_tab",
+   "fieldtype": "Tab Break",
+   "label": "Partners"
+  },
+  {
+   "fieldname": "partners_information",
+   "fieldtype": "Table",
+   "label": "Partners Information",
+   "options": "Partner"
+  },
+  {
+   "fieldname": "plots_tab",
+   "fieldtype": "Tab Break",
+   "label": "Plots"
+  },
+  {
+   "fieldname": "plot_list",
+   "fieldtype": "Table",
+   "options": "link plot owner"
+  },
+  {
+   "fieldname": "customer_since",
+   "fieldtype": "Date",
+   "label": "Customer Since"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_active_",
+   "fieldtype": "Check",
+   "label": "Is Active ?"
   }
  ],
  "icon": "fa fa-user",
  "idx": 363,
  "image_field": "image",
  "index_web_pages_for_search": 1,
- "links": [
-  {
-   "group": "Allowed Items",
-   "link_doctype": "Party Specific Item",
-   "link_fieldname": "party"
-  }
- ],
- "modified": "2024-06-17 03:24:59.612974",
+ "links": [],
+ "modified": "2024-09-30 15:09:38.252704",
  "modified_by": "Administrator",
  "module": "Selling",
  "name": "Customer",
@@ -674,6 +728,7 @@
  "quick_entry": 1,
  "search_fields": "customer_group,territory, mobile_no,primary_address",
  "show_name_in_global_search": 1,
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
