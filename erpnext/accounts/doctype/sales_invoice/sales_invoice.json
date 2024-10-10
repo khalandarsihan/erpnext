@@ -307,6 +307,7 @@
    "default": "0",
    "fieldname": "is_pos",
    "fieldtype": "Check",
+   "hidden": 1,
    "hide_days": 1,
    "hide_seconds": 1,
    "label": "Include Payment (POS)",
@@ -329,6 +330,7 @@
    "depends_on": "eval: !doc.is_debit_note",
    "fieldname": "is_return",
    "fieldtype": "Check",
+   "hidden": 1,
    "hide_days": 1,
    "hide_seconds": 1,
    "label": "Is Return (Credit Note)",
@@ -691,6 +693,7 @@
   {
    "fieldname": "items_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "hide_border": 1,
    "hide_days": 1,
    "hide_seconds": 1,
@@ -881,6 +884,7 @@
   {
    "fieldname": "taxes_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "hide_border": 1,
    "hide_days": 1,
    "hide_seconds": 1,
@@ -987,6 +991,7 @@
   {
    "fieldname": "total_taxes_and_charges",
    "fieldtype": "Currency",
+   "hidden": 1,
    "hide_days": 1,
    "hide_seconds": 1,
    "label": "Total Taxes and Charges",
@@ -1077,6 +1082,7 @@
    "collapsible": 1,
    "fieldname": "section_break_49",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "hide_days": 1,
    "hide_seconds": 1,
    "label": "Additional Discount"
@@ -1213,6 +1219,7 @@
    "depends_on": "eval:!doc.disable_rounded_total",
    "fieldname": "rounding_adjustment",
    "fieldtype": "Currency",
+   "hidden": 1,
    "hide_days": 1,
    "hide_seconds": 1,
    "label": "Rounding Adjustment",
@@ -1223,9 +1230,10 @@
   },
   {
    "bold": 1,
-   "depends_on": "eval:!doc.disable_rounded_total",
+   "depends_on": "eval:doc.disable_rounded_total",
    "fieldname": "rounded_total",
    "fieldtype": "Currency",
+   "hidden": 1,
    "hide_days": 1,
    "hide_seconds": 1,
    "label": "Rounded Total",
@@ -1249,6 +1257,7 @@
   {
    "fieldname": "total_advance",
    "fieldtype": "Currency",
+   "hidden": 1,
    "hide_days": 1,
    "hide_seconds": 1,
    "label": "Total Advance",
@@ -1978,6 +1987,7 @@
    "description": "Issue a debit note with 0 qty against an existing Sales Invoice",
    "fieldname": "is_debit_note",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Is Rate Adjustment Entry (Debit Note)"
   },
   {
@@ -1985,6 +1995,7 @@
    "depends_on": "grand_total",
    "fieldname": "disable_rounded_total",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Disable Rounded Total"
   },
   {
@@ -2046,26 +2057,31 @@
   {
    "fieldname": "contact_and_address_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "Address & Contact"
   },
   {
    "fieldname": "payments_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "Payments"
   },
   {
    "fieldname": "terms_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "Terms"
   },
   {
    "fieldname": "more_info_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "More Info"
   },
   {
    "fieldname": "connections_tab",
    "fieldtype": "Tab Break",
+   "hidden": 1,
    "label": "Connections",
    "show_dashboard": 1
   },
@@ -2154,6 +2170,7 @@
    "default": "0",
    "fieldname": "use_company_roundoff_cost_center",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Use Company default Cost Center for Round off"
   },
   {
@@ -2202,7 +2219,7 @@
    "link_fieldname": "consolidated_invoice"
   }
  ],
- "modified": "2024-10-02 19:12:02.548427",
+ "modified": "2024-10-10 19:36:56.679696",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Sales Invoice",

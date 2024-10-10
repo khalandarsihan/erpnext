@@ -801,7 +801,7 @@
    "table_fieldname": "payment_entries"
   }
  ],
- "modified": "2024-05-31 17:07:06.197249",
+ "modified": "2024-10-08 11:14:54.180837",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Payment Entry",

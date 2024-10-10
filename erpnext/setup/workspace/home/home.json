@@ -6,7 +6,7 @@
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
- "hide_custom": 0,
+ "hide_custom": 1,
  "icon": "getting-started",
  "idx": 0,
  "is_hidden": 0,
@@ -213,17 +213,6 @@
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Letter Head",
-   "link_count": 0,
-   "link_to": "Letter Head",
-   "link_type": "DocType",
-   "onboard": 1,
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
    "label": "Email Account",
    "link_count": 0,
    "link_to": "Email Account",
@@ -232,7 +221,7 @@
    "type": "Link"
   }
  ],
- "modified": "2023-05-24 14:47:18.765388",
+ "modified": "2024-10-10 00:35:33.495879",
  "modified_by": "Administrator",
  "module": "Setup",
  "name": "Home",
@@ -243,7 +232,7 @@
  "quick_lists": [],
  "restrict_to_domain": "",
  "roles": [],
- "sequence_id": 1.0,
+ "sequence_id": 2.0,
  "shortcuts": [
   {
    "label": "Item",
