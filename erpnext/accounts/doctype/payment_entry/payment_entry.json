@@ -175,6 +175,7 @@
    "depends_on": "eval:in_list([\"Receive\", \"Pay\"], doc.payment_type) && doc.docstatus==0",
    "fieldname": "party_type",
    "fieldtype": "Link",
+   "hidden": 1,
    "in_standard_filter": 1,
    "label": "Party Type",
    "options": "DocType",
@@ -186,6 +187,7 @@
    "depends_on": "eval:in_list([\"Receive\", \"Pay\"], doc.payment_type) && doc.party_type",
    "fieldname": "party",
    "fieldtype": "Dynamic Link",
+   "hidden": 1,
    "in_standard_filter": 1,
    "label": "Party",
    "options": "party_type"
@@ -206,6 +208,7 @@
    "depends_on": "party",
    "fieldname": "contact_person",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Contact",
    "options": "Contact"
   },
@@ -221,6 +224,7 @@
    "collapsible": 1,
    "fieldname": "payment_accounts_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Accounts"
   },
   {
@@ -371,6 +375,7 @@
   {
    "fieldname": "section_break_34",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Writeoff"
   },
   {
@@ -428,6 +433,7 @@
    "depends_on": "eval:(doc.paid_amount && doc.received_amount)",
    "fieldname": "deductions_or_loss_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Deductions or Loss"
   },
   {
@@ -446,7 +452,7 @@
    "depends_on": "eval:(doc.paid_from && doc.paid_to)",
    "fieldname": "reference_no",
    "fieldtype": "Data",
-   "label": "Cheque/Reference No",
+   "label": "UPI/Cheque/Reference No",
    "mandatory_depends_on": "eval:(doc.paid_from_account_type == 'Bank' || doc.paid_to_account_type == 'Bank')"
   },
   {
@@ -472,7 +478,6 @@
    "read_only": 1
   },
   {
-   "collapsible": 1,
    "depends_on": "eval:(doc.paid_from && doc.paid_to && doc.paid_amount && doc.received_amount)",
    "fieldname": "section_break_12",
    "fieldtype": "Section Break",
@@ -500,6 +505,7 @@
   {
    "fieldname": "letter_head",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Letter Head",
    "options": "Letter Head",
    "print_hide": 1
@@ -507,6 +513,7 @@
   {
    "fieldname": "print_heading",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Print Heading",
    "options": "Print Heading",
    "print_hide": 1
@@ -535,6 +542,7 @@
   {
    "fieldname": "subscription_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Subscription Section"
   },
   {
@@ -568,6 +576,7 @@
    "depends_on": "party",
    "fieldname": "bank_account",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Company Bank Account",
    "options": "Bank Account"
   },
@@ -575,6 +584,7 @@
    "depends_on": "party",
    "fieldname": "party_bank_account",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Party Bank Account",
    "options": "Bank Account"
   },
@@ -591,6 +601,7 @@
    "collapsible": 1,
    "fieldname": "accounting_dimensions_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Accounting Dimensions"
   },
   {
@@ -631,6 +642,7 @@
    "collapsible": 1,
    "fieldname": "taxes_and_charges_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Taxes and Charges"
   },
   {
@@ -648,9 +660,9 @@
    "options": "Sales Taxes and Charges Template"
   },
   {
-   "depends_on": "eval: doc.party_type == 'Supplier' || doc.party_type == 'Customer'",
    "fieldname": "taxes",
    "fieldtype": "Table",
+   "hidden": 1,
    "label": "Advance Taxes and Charges",
    "options": "Advance Taxes and Charges"
   },
@@ -690,6 +702,7 @@
   {
    "fieldname": "section_break_56",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "hide_border": 1
   },
   {
@@ -731,6 +744,7 @@
   {
    "fieldname": "section_break_60",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "hide_border": 1
   },
   {
@@ -801,7 +815,7 @@
    "table_fieldname": "payment_entries"
   }
  ],
- "modified": "2024-10-08 11:14:54.180837",
+ "modified": "2024-10-16 13:29:42.298760",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Payment Entry",

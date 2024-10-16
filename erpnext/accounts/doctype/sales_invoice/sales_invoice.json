@@ -83,6 +83,8 @@
   "base_in_words",
   "column_break5",
   "grand_total",
+  "base_paid_amount",
+  "paid_amount",
   "rounding_adjustment",
   "use_company_roundoff_cost_center",
   "rounded_total",
@@ -115,10 +117,6 @@
   "payments_section",
   "cash_bank_account",
   "payments",
-  "section_break_84",
-  "base_paid_amount",
-  "column_break_86",
-  "paid_amount",
   "section_break_88",
   "base_change_amount",
   "column_break_90",
@@ -1385,12 +1383,6 @@
    "print_hide": 1
   },
   {
-   "fieldname": "section_break_84",
-   "fieldtype": "Section Break",
-   "hide_days": 1,
-   "hide_seconds": 1
-  },
-  {
    "depends_on": "eval: doc.is_pos || doc.redeem_loyalty_points",
    "fieldname": "base_paid_amount",
    "fieldtype": "Currency",
@@ -1401,12 +1393,6 @@
    "options": "Company:company:default_currency",
    "print_hide": 1,
    "read_only": 1
-  },
-  {
-   "fieldname": "column_break_86",
-   "fieldtype": "Column Break",
-   "hide_days": 1,
-   "hide_seconds": 1
   },
   {
    "depends_on": "eval: doc.is_pos || doc.redeem_loyalty_points",
@@ -2219,7 +2205,7 @@
    "link_fieldname": "consolidated_invoice"
   }
  ],
- "modified": "2024-10-10 19:36:56.679696",
+ "modified": "2024-10-14 14:49:43.498868",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Sales Invoice",
