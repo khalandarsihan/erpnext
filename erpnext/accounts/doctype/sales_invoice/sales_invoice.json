@@ -81,6 +81,7 @@
   "base_rounding_adjustment",
   "base_rounded_total",
   "base_in_words",
+  "pdf_invoice_link",
   "column_break5",
   "grand_total",
   "base_paid_amount",
@@ -257,7 +258,6 @@
    "fieldtype": "Link",
    "hide_days": 1,
    "hide_seconds": 1,
-   "in_standard_filter": 1,
    "label": "Customer",
    "oldfieldname": "customer",
    "oldfieldtype": "Link",
@@ -347,7 +347,6 @@
    "fieldtype": "Link",
    "hide_days": 1,
    "hide_seconds": 1,
-   "in_standard_filter": 1,
    "label": "Company",
    "oldfieldname": "company",
    "oldfieldtype": "Link",
@@ -1363,7 +1362,6 @@
    "depends_on": "is_pos",
    "fieldname": "cash_bank_account",
    "fieldtype": "Link",
-   "hidden": 1,
    "hide_days": 1,
    "hide_seconds": 1,
    "label": "Cash/Bank Account",
@@ -1665,6 +1663,7 @@
    "fieldtype": "Select",
    "hide_days": 1,
    "hide_seconds": 1,
+   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Status",
    "length": 30,
@@ -2067,9 +2066,7 @@
   {
    "fieldname": "connections_tab",
    "fieldtype": "Tab Break",
-   "hidden": 1,
-   "label": "Connections",
-   "show_dashboard": 1
+   "label": "Connections"
   },
   {
    "fieldname": "column_break_14",
@@ -2193,6 +2190,13 @@
    "fieldname": "work_description",
    "fieldtype": "Small Text",
    "label": "Work Description"
+  },
+  {
+   "fieldname": "pdf_invoice_link",
+   "fieldtype": "Data",
+   "label": "PDF Invoice Link",
+   "options": "URL",
+   "read_only": 1
   }
  ],
  "icon": "fa fa-file-text",
@@ -2201,11 +2205,12 @@
  "links": [
   {
    "group": "Reference",
+   "hidden": 1,
    "link_doctype": "POS Invoice",
    "link_fieldname": "consolidated_invoice"
   }
  ],
- "modified": "2024-10-14 14:49:43.498868",
+ "modified": "2024-10-18 17:08:57.013459",
  "modified_by": "Administrator",
  "module": "Accounts",
  "name": "Sales Invoice",

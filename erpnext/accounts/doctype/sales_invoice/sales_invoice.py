@@ -150,6 +150,7 @@ class SalesInvoice(SellingController):
 		payment_schedule: DF.Table[PaymentSchedule]
 		payment_terms_template: DF.Link | None
 		payments: DF.Table[SalesInvoicePayment]
+		pdf_invoice_link: DF.Data | None
 		plc_conversion_rate: DF.Float
 		plot: DF.Link | None
 		po_date: DF.Date | None

@@ -50,7 +50,7 @@ class Customer(TransactionBase):
 		customer_email: DF.Data | None
 		customer_group: DF.Link | None
 		customer_name: DF.Data
-		customer_phone: DF.Data | None
+		customer_phone: DF.Phone | None
 		customer_pos_id: DF.Data | None
 		customer_primary_address: DF.Link | None
 		customer_primary_contact: DF.Link | None
